@@ -16,29 +16,6 @@ console.log('JS-EMAIL-LIST')
 // 6) Creo bottone html
 // 7) Aggiungo evento al click del bottone che mi fa vedere in pagina la lista di email
 
-// Prendo elementi html
-// const generateBtn = document.getElementById('btn')
-// const randomEmailList = document.getElementById('emailList')
-
-// // Genero funzione per generare 10 mail random
-// function generateRandomEmails() {
-
-//     const randomEmail = [] // creo array vuoto
-
-//     for (let i = 0; i < 11; i++) {
-//         axios
-//             .get('https://flynn.boolean.careers/exercises/api/random/mail')
-//             .then((res) => {
-//                 randomEmail.push(res.data.response) // pusho elementi in array vuoto
-//             })
-
-//             .catch((err) => {
-//                 console.log('Qualcosa è andato storto'.err)
-//             })
-//     }
-// }
-
-
 
 // Creo funzione per generare mail
 function randomEmails() {

@@ -7,3 +7,12 @@
 h1 {
     text-align: center;
 }
+
+.title {
+    margin-bottom: 40px;
+}
+
+.list-group.list-group-numbered {
+    text-align: center;
+    margin-top: 20px;
+}
