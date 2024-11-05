@@ -9,10 +9,22 @@ console.log('JS-EMAIL-LIST')
 
 //Passaggi:
 // 1) Creo axios con url api https://flynn.boolean.careers/exercises/api/random/mail
-// 2) Aggiungo Query String
+// 2) Ciclo For
 // 3) Stampo email generate random in array
 // 4) Ciclo array per avere email stampate singolarmente
 // 5) Pusho array dentro una lista creata con html
 // 6) Creo bottone html
 // 7) Aggiungo evento al click del bottone che mi fa vedere in pagina la lista di email
 
+const email = []
+
+for (let i = 0; i < 11; i++) {
+    axios
+        .get('https://flynn.boolean.careers/exercises/api/random/mail')
+        .then((res) => {
+            console.log(res.data)
+        })
+        .catch((err) => {
+            console.log(err.data)
+        })
+}
