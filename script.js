@@ -16,15 +16,53 @@ console.log('JS-EMAIL-LIST')
 // 6) Creo bottone html
 // 7) Aggiungo evento al click del bottone che mi fa vedere in pagina la lista di email
 
-const email = []
+// Prendo elementi html
+// const generateBtn = document.getElementById('btn')
+// const randomEmailList = document.getElementById('emailList')
 
-for (let i = 0; i < 11; i++) {
-    axios
-        .get('https://flynn.boolean.careers/exercises/api/random/mail')
-        .then((res) => {
-            console.log(res.data)
+// // Genero funzione per generare 10 mail random
+// function generateRandomEmails() {
+
+//     const randomEmail = [] // creo array vuoto
+
+//     for (let i = 0; i < 11; i++) {
+//         axios
+//             .get('https://flynn.boolean.careers/exercises/api/random/mail')
+//             .then((res) => {
+//                 randomEmail.push(res.data.response) // pusho elementi in array vuoto
+//             })
+
+//             .catch((err) => {
+//                 console.log('Qualcosa è andato storto'.err)
+//             })
+//     }
+// }
+
+
+
+// Creo funzione per generare mail
+function randomEmails() {
+    axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+        .then(res => {
+            const email = res.data.response;
+            const emailList = document.getElementById('emailList');
+            const newEmail = document.createElement('li');
+            newEmail.textContent = email;
+            emailList.appendChild(newEmail);
         })
-        .catch((err) => {
-            console.log(err.data)
-        })
+        .catch(error => {
+            console.error('Qualcosa è andato storto:', error);
+        });
 }
+
+// Creo funzione per caricare 10 mail random
+function loadNewEmails() {
+    const emailList = document.getElementById('emailList');
+    emailList.innerHTML = ''; // Svuota la lista precedente
+    for (let i = 0; i < 10; i++) {
+        randomEmails();
+    }
+}
+
+// Aggiungo evento al click del bottone
+document.getElementById('btn').addEventListener('click', loadNewEmails);
